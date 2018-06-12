@@ -80,17 +80,17 @@ header('Cache-Control: max-age=2592000');
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="<?php echo Session::get('adminImage'); ?>" class="user-image" alt="User Image" height="160px" width="160px">
+                                    <img src="upload/head.jpg" class="user-image" alt="User Image" height="160px" width="160px">
                                     <span class="hidden-xs">Hello ! <?php echo Session::get('adminUser'); ?></span>
                                     
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="<?php echo Session::get('adminImage'); ?>" class="user-image" alt="User Image" height="160px" width="160px">
+                                        <img src="upload/head.jpg" class="user-image" alt="User Image">
 
                                         <p>
-                                           <?php echo Session::get('adminName'); ?> - <?php echo Session::get('adminSkill'); ?>
+                                            <?php echo Session::get('adminName'); ?> - <?php echo Session::get('adminSkill'); ?>
                                             <small>Serious since 2015</small>
                                         </p>
                                     </li>
@@ -98,9 +98,7 @@ header('Cache-Control: max-age=2592000');
 
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
+                                        
                                         <div class="pull-right">
                                             <a href="?action=logout" class="btn btn-default btn-flat">Sign out</a>
                                         </div>

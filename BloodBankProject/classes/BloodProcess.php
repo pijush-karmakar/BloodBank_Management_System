@@ -772,6 +772,7 @@ public function donorLogIn($data){
         Session::set("donorLogin",true );
         Session::set("donorId",$value['donorId'] );
         Session::set("donorName",$value['name'] ); 
+        Session::set("donorEmail",$value['email'] ); 
         // echo "<script>window.location = 'donordashboard.php';</script>";
         header('location:donordashboard.php');
         
@@ -939,8 +940,7 @@ public function getDonarData($donorId){
 // ==============  For searching the blood group ==============//
 
 public function searchResult(){
-    $query = "SELECT d.*,b.bg_name FROM tbl_donorregister AS d,bloodgroup AS b WHERE d.bg_id = b.bg_id AND 
-    d.bg_id='". $_REQUEST["bg"]."' " ;
+    $query = "SELECT d.*,b.bg_name FROM tbl_donorregister AS d,bloodgroup AS b WHERE d.bg_id = b.bg_id AND d.bg_id='". $_REQUEST["bg"]."' " ;
     
     $result = $this->db->select($query);
     return $result;
@@ -1129,18 +1129,17 @@ public function OptionInsert($data){
     $fb      = mysqli_real_escape_string($this->db->link,$data['fb']);
     $tw      = mysqli_real_escape_string($this->db->link,$data['tw']);
     $gp      = mysqli_real_escape_string($this->db->link,$data['gp']);
-    $ins      = mysqli_real_escape_string($this->db->link,$data['ins']);
 
 
-       if( $site_email=="" ||  $site_phone=="" ||  $copyright=="" ||  $fb=="" ||  $tw=="" ||  $gp=="" || $ins==""  ){
+       if( $site_email=="" ||  $site_phone=="" ||  $copyright=="" ||  $fb=="" ||  $tw=="" ||  $gp==""  ){
             $msg = '<div class="alert alert-danger alert-dismiss"><strong>Error ! </strong>Field must not be empty</div>';
            return $msg ;
         }
 
         else{
 
-            $query = "INSERT INTO  tbl_social(site_email,site_phone,copyright,fb,tw,gp,ins ) 
-            VALUES( '$site_email','$site_phone','$copyright','$fb','$tw','$gp','$ins' ) ";
+            $query = "INSERT INTO  tbl_social(site_email,site_phone,copyright,fb,tw,gp ) 
+            VALUES( '$site_email','$site_phone','$copyright','$fb','$tw','$gp') ";
 
             $insert_row = $this->db->insert($query);
             if($insert_row){
@@ -1156,6 +1155,101 @@ public function OptionInsert($data){
 
 
 }
+
+
+public function donationInseret($data){
+            $campId        = mysqli_real_escape_string($this->db->link,$data['campId']);
+            $donation_date = mysqli_real_escape_string($this->db->link,$data['donation_date']);
+            $details       = mysqli_real_escape_string($this->db->link,$data['details']);
+            $email         = $_SESSION["donorEmail"];
+
+
+
+        if( $campId=="" ||  $donation_date=="" ||  $details=="" ){
+            $msg = '<div class="alert alert-danger alert-dismiss"><strong>Error ! </strong>Field must not be empty</div>';
+           return $msg ;
+        }
+
+        else{
+
+            $query = "INSERT INTO  tbl_donation(campId,donation_date,details,email) 
+            VALUES( '$campId','$donation_date','$details', '$email'  ) ";
+
+            $insert_row = $this->db->insert($query);
+            if($insert_row){
+                $msg = '<div class="alert alert-success"><strong>Success ! </strong>Save Successfully</div>';
+                return $msg;
+             }
+            else{
+               $msg = '<div class="alert alert-danger"><strong>Error ! </strong> Not saved. try again...</div>';
+                return $msg;
+            }
+
+        }
+
+}
+
+
+public function getBloodDonation( $donorEmail ){
+
+   $query = "SELECT d.*,c.campTitle FROM tbl_donation AS d,tbl_camp AS c WHERE d.campId = c.campId
+   AND  email = '$donorEmail' ORDER BY donation_id DESC " ;
+
+    $result = $this->db->select($query);
+    return $result;
+}
+
+
+public function getSocial(){
+  $query = "SELECT * FROM tbl_social ORDER BY social_id DESC";
+   $result = $this->db->select($query);
+    return $result;
+}
+
+public function getSiteOptionById($id){
+  $query = "SELECT * FROM tbl_social WHERE social_id = '$id' ";
+    $result = $this->db->select($query);
+    return $result;
+}
+
+
+public function optionUpdate($data,$id){
+
+     $site_email             = mysqli_real_escape_string($this->db->link,$data['site_email']);
+     $site_phone             = mysqli_real_escape_string($this->db->link,$data['site_phone']);
+     $copyright              = mysqli_real_escape_string($this->db->link,$data['copyright']);
+     $fb                     = mysqli_real_escape_string($this->db->link,$data['fb']);
+     $tw                     = mysqli_real_escape_string($this->db->link,$data['tw']);
+     $gp                     = mysqli_real_escape_string($this->db->link,$data['gp']);
+     
+    
+
+     if( empty($site_email) || empty($site_phone) || empty($copyright) || empty($fb) || empty($tw) || empty($gp)  ){
+         $msg = '<div class="alert alert-danger"><strong>Error ! </strong>Field must not be empty</div>';
+         return $msg ;
+      } 
+
+      else{
+         $query = "UPDATE tbl_social SET site_email = '$site_email', site_phone = '$site_phone', copyright = '$copyright',fb = '$fb',tw = '$tw',gp = '$gp' WHERE social_id = '$id'; ";
+         $Update_row = $this->db->update( $query );
+
+          if($Update_row){
+            $msg = '<div class="alert alert-success"><strong>Success ! </strong> Updated Successfully</div>';
+            return $msg;
+       }
+       else{
+           $msg = '<div class="alert alert-danger"><strong>Error ! </strong> Not Updated .</div>';
+            return $msg;
+       }
+
+    }
+
+
+}
+
+
+
+
 
 
 

@@ -43,7 +43,6 @@ class Adminlogin{
            Session::set( "adminId",$value['adminId'] );
            Session::set( "adminName",$value['adminName'] );
            Session::set( "adminUser",$value['adminUser'] );
-           Session::set( "adminImage",$value['adminImage'] );
            Session::set( "adminSkill",$value['adminSkill'] );
            header('Location:index.php');
 

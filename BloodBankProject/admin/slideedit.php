@@ -68,7 +68,7 @@ else{
                                         
                                         <input type="file" id="exampleInputFile" name="slider_image">
                                         <div class="proImg">
-                                            <img src="<?php echo $result['slider_image']; ?>" alt="" class="productImage">
+                                            <img src="<?php echo $result['slider_image']; ?>" alt="" class="slideImage">
                                         </div>
                                         
                                     </div>

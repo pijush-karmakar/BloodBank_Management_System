@@ -1,7 +1,17 @@
         
     <div class="footer-bottom">
         <div class="container">
-            <p>© 2018 Blood-Bank. All rights reserved | Design by <a href="http://impijush.com">Pijush Karmakar</a></p>
+            <?php 
+
+                 $getSocial = $bp->getSocial();
+                 if( $getSocial ){
+                    while( $result = $getSocial->fetch_assoc() ){
+                            
+            ?>
+            <p><?php echo $result['copyright']; ?> <a href="http://impijush.com">Pijush Karmakar</a></p>
+
+        <?php } } ?>
+
         </div>
     </div>
 
@@ -9,14 +19,14 @@
     <!--start-smooth-scrolling-->
     <script type="text/javascript">
         $(document).ready(function() {
-            /*
+            
 					var defaults = {
 			  			containerID: 'toTop', // fading element id
 						containerHoverID: 'toTopHover', // fading element hover id
 						scrollSpeed: 1200,
 						easingType: 'linear' 
 			 		};
-					*/
+					
 
             $().UItoTop({
                 easingType: 'easeOutQuart'
@@ -32,3 +42,5 @@
 </body>
 
 </html>
+
+<?php ob_end_flush(); ?>

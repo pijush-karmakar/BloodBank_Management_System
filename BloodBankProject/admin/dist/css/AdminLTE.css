@@ -36,7 +36,13 @@ My custom CSS
 }
 img.productImage {
     height: 150px;
-    width: 165px;
+    width: 180px;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+img.slideImage{
+    height: 150px;
+    width: 320px;
     border-radius: 8px;
     padding: 0 5px;
 }
@@ -1193,7 +1199,6 @@ a:focus {
   }
 }
 .navbar-nav > .user-menu .user-image {
-  float: left;
   width: 25px;
   height: 25px;
   border-radius: 50%;

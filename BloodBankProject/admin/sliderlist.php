@@ -59,7 +59,7 @@
                    ?>
                 <tr>
                   <td><?php echo $i; ?></td>
-                  <td><img src="<?php echo $result['slider_image']; ?>" alt="" height="60" width="60"></td>
+                  <td><img src="<?php echo $result['slider_image']; ?>" alt="" height="120" width="220"></td>
                    <td><?php echo $fm->textShorten($result['body'],90 ); ?></td>
                   
 

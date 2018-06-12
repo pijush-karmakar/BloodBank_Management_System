@@ -9,7 +9,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="upload/head.jpg" class="img-circle" alt="User Image">
             </div>
 
             <div class="pull-left info">
@@ -112,19 +112,6 @@
                 </ul>
             </li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-user"></i> <span>User Profile</span>
-                    <span class="pull-right-container">
-                       <i class="fa fa-plus-square pull-right"></i>
-                    </span>
-                </a>
-                
-                <ul class="treeview-menu">
-                    <li><a href="changepass.php"><i class="fa fa-pencil"></i>Password</a></li>
-                    <li><a href="inbox.php"><i class="fa fa-inbox"></i>Inbox</a></li>
-                </ul>
-            </li>
 
         </ul>
     </section>

@@ -17,8 +17,8 @@ include 'inc/header.php';
    	 <div class="container">
             <div class="row">
          
-   	 	     <div class="col-md-8 col-md-offset-2">
-   	 	     		<h1>Welcome to the Admin panel</h1>
+   	 	     <div class="col-md-8 col-md-offset-2 donar-dash">
+   	 	     		<h1>Welcome to Donar Dashboard</h1>
    	 	     </div> 
    	 	
    	 	 </div>   

@@ -84,6 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 loader: 'bar',
                 pagination: false,
                 thumbnails: true
+
             });
         });
 
@@ -98,16 +99,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="main-header" id="house">
         <div class="header-strip">
             <div class="container">
-                <p class="location"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:info@example.com">info@example.com</a></p>
-                <p class="phonenum"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> + 655 8858 54892</p>
+
+            <?php 
+
+                 $getSocial = $bp->getSocial();
+                 if( $getSocial ){
+                    while( $result = $getSocial->fetch_assoc() ){
+                            
+            ?>
+                <p class="location"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:info@example.com"><?php echo $result['site_email'] ?></a></p>   
+
+                <p class="phonenum">
+                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><?php echo $result['site_phone'] ?></p>
                 <div class="social-icons">
                     <ul>
-                        <li><a href="#"><i class="facebook"> </i></a></li>
-                        <li><a href="#"><i class="twitter"> </i></a></li>
-                        <li><a href="#"><i class="google-plus"> </i></a></li>
-                        <li><a href="#"><i class="dribble"> </i></a></li>
+                        <li><a href="<?php echo $result['fb'] ?>"><i class="facebook"> </i></a></li>
+                        <li><a href="<?php echo $result['tw'] ?>"><i class="twitter"> </i></a></li>
+                        <li><a href="<?php echo $result['gp'] ?>"><i class="google-plus"> </i></a></li>
                     </ul>
                 </div>
+    <?php } } ?>
+
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -235,4 +247,4 @@ if(  $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search']) ){
 
     </div>
 
-    <?php ob_end_flush(); ?>
+    
