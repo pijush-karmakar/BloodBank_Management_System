@@ -156,6 +156,66 @@ li.drop-item {
 .c_left{
     float:left;
 }
+.index{
+    float:left;
+    width: 65%;
+}
+.c_right{
+    float: right;
+    width: 30%;
+}
+
+.sidebar h2{
+    font-size: 2.2em;
+    color: #A57873;
+    text-transform: capitalize;
+    text-shadow: 0 1px 0 #FFFFFF;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #A57673;
+    margin-bottom: 20px;
+    margin-top: 30px !important;
+    line-height: 2.2em;
+}
+.blog_posts {
+   box-shadow: 2px 2px 8px #4646;
+    padding: 20px;
+}
+
+.blog_desc {
+    float: left;
+    padding-left:3%;
+}
+
+.blog_desc p {
+    color:#444;
+    font-size: 0.8125em;
+    line-height: 1.8em;
+}
+.blog_heading span {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1em;
+    line-height: 20px;
+    text-shadow: 0px 1px 0 #fff;
+    color: #A57873;
+}
+.blog_heading p {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 left h1, h2, h3, h4, h4, h5, h6 {
     margin-top: 14px !important;
     font-weight: 600 !important;
@@ -176,6 +236,7 @@ left h1, h2, h3, h4, h4, h5, h6 {
     font-weight: normal;
     text-shadow: 0 1px 0 #FFFFFF;
     font-family: 'Ruluko', sans-serif;
+    color: #8d1d14;
 }
 .left p{
     margin-top:15px;
@@ -1100,6 +1161,35 @@ p.p1{
     margin-top: 2em;
 }
 /*-- /about --*/
+.ab-text p img{
+    float:left;
+    margin-top:10px;
+    margin-right:3.333%;
+    padding: 2px;
+    background: #E8CFBF;
+    box-shadow: 0px 12px 14px -14px #121D11;
+    -webkit-box-shadow: 0px 12px 14px -14px #121D11;
+    -moz-box-shadow: 0px 12px 14px -14px #121D11;
+    -o-box-shadow: 0px 12px 14px -14px #121D11;
+}
+
+.ab-text p.top{
+    margin-top: -2%;
+}
+.tableborder {
+    border: solid 2px #e33e4f;
+    background-color: #f8f1e4;
+    box-shadow: 5px 0px 10px 2px #bbb4b4;
+}
+.left {
+    padding: 2% 0;
+}
+
+
+
+
+
+
 #services {
     padding: 6em 0;
 }
@@ -2748,6 +2838,16 @@ float:left;
 	}
 }
 @media (max-width:736px) {
+
+.index{
+    width:100%;
+}
+.c_right{
+    width: 100%;
+}
+
+
+
 	.logo h1 a {
 		font-size: 1.5em;
 	}
